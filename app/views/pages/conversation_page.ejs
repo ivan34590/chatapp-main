@@ -1,0 +1,23 @@
+<div>
+    <h1> <% partner %></h1>
+    <div id="messages">
+        <% messages.forEach(message => { %>
+            <div class="message">
+                <p class="sender"><%= message.SenderUsername %>:</p>
+                <p class="content"><%= message.Content %></p>
+                <p class="timestamp"><%= new Date(message.SentAt).toLocaleString() %></p>
+            </div>
+        <% }) %>
+    </div>
+     <div class="send-message-form">
+        <h2>Send a Message</h2>
+        <form id="sendMessageForm" method="POST" action="/sendMessage/<%=conversationID%>">
+            <label for="Content">Message:</label>
+            <textarea id="Content" name="Content" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+    <!-- <a id="BackToConvos" href="/userPage/">Back to conversations</a> -->
+    <script src="/js/conversation_page.js"></script>
+</div>
+
